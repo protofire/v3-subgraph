@@ -29,6 +29,7 @@ const MATIC_NETWORK_NAME = 'matic'
 const OPTIMISM_NETWORK_NAME = 'optimism'
 const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ABSTRACT_TESTNET = 'abstract-testnet'
+const ZERO = 'zero'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -405,6 +406,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0x9edcde0257f2386ce177c3a7fcdd97787f0d841d', // WETH
         '0xe4c7fbb0a626ed208021ccaba6be1566905e2dfc', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == ZERO) {
+    return {
+      factoryAddress: '0xA1160e73B63F322ae88cC2d8E700833e71D0b2a1',
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // PENDING
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0xAc98B49576B1C892ba6BFae08fE1BB0d80Cf599c', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0x6a6394F47DD0BAF794808F2749C09bd4Ee874E70', // USDC
+      ],
+      whitelistTokens: [
+        '0xAc98B49576B1C892ba6BFae08fE1BB0d80Cf599c', // WETH
+        '0x6a6394F47DD0BAF794808F2749C09bd4Ee874E70', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],

@@ -64,5 +64,11 @@
       "address": "0x2E17FF9b877661bDFEF8879a4B31665157a960F0",
       "startBlock": 356725
     }
+  },
+  "zero": {
+    "Factory": {
+      "address": "0xA1160e73B63F322ae88cC2d8E700833e71D0b2a1",
+      "startBlock": 727
+    }
   }
 }
