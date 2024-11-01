@@ -414,7 +414,7 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == ZERO) {
     return {
       factoryAddress: '0xA1160e73B63F322ae88cC2d8E700833e71D0b2a1',
-      stablecoinWrappedNativePoolAddress: '0x5e6a3ecf57315e10befd635e4072226c0051caea', // WETH/USDC 0.3% pool
+      stablecoinWrappedNativePoolAddress: '0x5e6a3ecf57315e10befd635e4072226c0051caea', // USDC/WETH 0.3% pool
       stablecoinIsToken0: true,
       wrappedNativeAddress: '0xac98b49576b1c892ba6bfae08fe1bb0d80cf599c', // WETH
       minimumNativeLocked: BigDecimal.fromString('1'),
