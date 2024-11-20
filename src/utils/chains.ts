@@ -30,6 +30,7 @@ const OPTIMISM_NETWORK_NAME = 'optimism'
 const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ABSTRACT_TESTNET = 'abstract-testnet'
 const ZERO = 'zero'
+const BOB = 'bob'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -396,7 +397,7 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == ABSTRACT_TESTNET) {
     return {
       factoryAddress: '0x2E17FF9b877661bDFEF8879a4B31665157a960F0',
-      stablecoinWrappedNativePoolAddress: '0xef58ee803c3384630c1a81941840a1c7d0521d58', // WETH/USDC 0.3% pool 
+      stablecoinWrappedNativePoolAddress: '0xef58ee803c3384630c1a81941840a1c7d0521d58', // WETH/USDC 0.3% pool
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x9edcde0257f2386ce177c3a7fcdd97787f0d841d', // WETH
       minimumNativeLocked: BigDecimal.fromString('1'),
@@ -424,6 +425,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0xac98b49576b1c892ba6bfae08fe1bb0d80cf599c', // WETH
         '0x6a6394f47dd0baf794808f2749c09bd4ee874e70', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == BOB) {
+    return {
+      factoryAddress: '0xcb2436774C3e191c85056d248EF4260ce5f27A9D',
+      stablecoinWrappedNativePoolAddress: '0x02f57b2e4d310f3cf432fafa8d0d780ee920467c', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: true,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xe75D0fB2C24A55cA1e3F96781a2bCC7bdba058F0', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xe75D0fB2C24A55cA1e3F96781a2bCC7bdba058F0', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],

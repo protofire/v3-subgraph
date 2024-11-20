@@ -70,5 +70,11 @@
       "address": "0xA1160e73B63F322ae88cC2d8E700833e71D0b2a1",
       "startBlock": 727
     }
+  },
+  "bob": {
+    "Factory": {
+      "address": "0xcb2436774C3e191c85056d248EF4260ce5f27A9D",
+      "startBlock": 5188280
+    }
   }
 }
