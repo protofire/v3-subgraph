@@ -12,7 +12,7 @@ dataSources:
     network: bob
     source:
       abi: Factory
-      address: '0xcb2436774C3e191c85056d248EF4260ce5f27A9D'
+      address: "0xcb2436774C3e191c85056d248EF4260ce5f27A9D"
       startBlock: 5188280
     mapping:
       kind: ethereum/events
