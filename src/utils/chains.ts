@@ -31,6 +31,7 @@ const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ABSTRACT_TESTNET = 'abstract-testnet'
 const ZERO = 'zero'
 const BOB = 'bob'
+const CYBER = 'cyeth'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -443,6 +444,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0x4200000000000000000000000000000000000006', // WETH
         '0xe75d0fb2c24a55ca1e3f96781a2bcc7bdba058f0', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == BOB) {
+    return {
+      factoryAddress: '0x9701158fcF072c6852FD83B54D237e0cf5910C08',
+      stablecoinWrappedNativePoolAddress: '0xab830ad85ee726404bb6b101d527bf7d56cce29d', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0x81759adbf5520ad94da10991dfa29ff147d3337b', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0x81759adbf5520ad94da10991dfa29ff147d3337b', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],
