@@ -449,7 +449,7 @@ export function getSubgraphConfig(): SubgraphConfig {
       poolsToSkip: [],
       poolMappings: [],
     }
-  } else if (selectedNetwork == BOB) {
+  } else if (selectedNetwork == CYBER) {
     return {
       factoryAddress: '0x9701158fcF072c6852FD83B54D237e0cf5910C08',
       stablecoinWrappedNativePoolAddress: '0xab830ad85ee726404bb6b101d527bf7d56cce29d', // USDC/WETH 0.3% pool
