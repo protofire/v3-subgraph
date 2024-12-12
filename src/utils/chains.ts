@@ -14,6 +14,7 @@ export enum ChainId {
   MATIC = 137,
   OPTIMISM = 10,
   ZKSYNC_ERA = 324,
+  SHAPE = 360,
 }
 
 // subgraph does not support string enums, hence these constants
@@ -27,6 +28,7 @@ const MAINNET_NETWORK_NAME = 'mainnet'
 const MATIC_NETWORK_NAME = 'matic'
 const OPTIMISM_NETWORK_NAME = 'optimism'
 const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
+const SHAPE = 'shape'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -384,6 +386,31 @@ export function getSubgraphConfig(): SubgraphConfig {
           address: Address.fromString('0x3355df6d4c9c3035724fd0e3914de96a5a83aaf4'),
           symbol: 'USDC.e',
           name: 'Bridged USDC (zkSync)',
+          decimals: BigInt.fromI32(6),
+        },
+      ],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == SHAPE) {
+    return {
+      factoryAddress: '0xeCf9288395797Da137f663a7DD0F0CDF918776F8',
+      stablecoinWrappedNativePoolAddress: '0x12a0b5f465bb6533388f8edaae40a033a82f20a4', // USDC.e/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe', // USDC.e
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe', // USDC.e
+      ],
+      tokenOverrides: [
+        {
+          address: Address.fromString('0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe'),
+          symbol: 'USDC.e',
+          name: 'Bridged USDC (shape-mainnet)',
           decimals: BigInt.fromI32(6),
         },
       ],
