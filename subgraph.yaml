@@ -9,11 +9,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: cyeth
+    network: shape
     source:
+      address: '0xeCf9288395797Da137f663a7DD0F0CDF918776F8'
       abi: Factory
-      address: '0x9701158fcF072c6852FD83B54D237e0cf5910C08'
-      startBlock: 9567951
+      startBlock: 6022152
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: cyeth
+    network: shape
     source:
       abi: Pool
     mapping:

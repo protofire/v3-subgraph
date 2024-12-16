@@ -15,6 +15,13 @@ export enum ChainId {
   OPTIMISM = 10,
   ZKSYNC_ERA = 324,
   ABSTRACT_TESTNET = 11124,
+  ZERO = 543210,
+  BOB = 60808,
+  CYBER = 7560,
+  SHAPE = 360,
+  INK = 57073,
+  REDSTONE_GARNET = 17069,
+  REDSTONE = 690,
 }
 
 // subgraph does not support string enums, hence these constants
@@ -32,6 +39,7 @@ const ABSTRACT_TESTNET = 'abstract-testnet'
 const ZERO = 'zero'
 const BOB = 'bob'
 const CYBER = 'cyeth'
+const SHAPE = 'shape'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -464,6 +472,31 @@ export function getSubgraphConfig(): SubgraphConfig {
         '0x81759adbf5520ad94da10991dfa29ff147d3337b', // USDC
       ],
       tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == SHAPE) {
+    return {
+      factoryAddress: '0xeCf9288395797Da137f663a7DD0F0CDF918776F8',
+      stablecoinWrappedNativePoolAddress: '0x12a0b5f465bb6533388f8edaae40a033a82f20a4', // USDC.e/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe', // USDC.e
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe', // USDC.e
+      ],
+      tokenOverrides: [
+        {
+          address: Address.fromString('0xdb7DD8B00EdC5778Fe00B2408bf35C7c054f8BBe'),
+          symbol: 'USDC.e',
+          name: 'Bridged USDC (shape-mainnet)',
+          decimals: BigInt.fromI32(6),
+        },
+      ],
       poolsToSkip: [],
       poolMappings: [],
     }
