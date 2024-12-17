@@ -88,5 +88,17 @@
       "address": "0xeCf9288395797Da137f663a7DD0F0CDF918776F8",
       "startBlock": 6022152
     }
+  },
+  "redstone": {
+    "Factory": {
+      "address": "0xece75613Aa9b1680f0421E5B2eF376DF68aa83Bb",
+      "startBlock": 924516
+    }
+  },
+  "redstone-garnet": {
+    "Factory": {
+      "address": "0x338F6033D373F610510e0F285637Ef5DDA776742",
+      "startBlock": 586081
+    }
   }
 }

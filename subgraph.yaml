@@ -9,11 +9,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: shape
+    network: redstone
     source:
-      address: '0xeCf9288395797Da137f663a7DD0F0CDF918776F8'
       abi: Factory
-      startBlock: 6022152
+      address: "0xece75613Aa9b1680f0421E5B2eF376DF68aa83Bb"
+      startBlock: 924516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: shape
+    network: redstone
     source:
       abi: Pool
     mapping:

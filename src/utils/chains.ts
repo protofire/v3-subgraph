@@ -40,6 +40,8 @@ const ZERO = 'zero'
 const BOB = 'bob'
 const CYBER = 'cyeth'
 const SHAPE = 'shape'
+const REDSTONE = 'redstone'
+const REDSTONE_GARNET = 'redstone-garnet'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -497,6 +499,42 @@ export function getSubgraphConfig(): SubgraphConfig {
           decimals: BigInt.fromI32(6),
         },
       ],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == REDSTONE) {
+    return {
+      factoryAddress: '0xece75613Aa9b1680f0421E5B2eF376DF68aa83Bb',
+      stablecoinWrappedNativePoolAddress: '0x1720f93cb4f93a832dc2498da915cc253cddbd94', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xd5d59fc063e7548b6015a36feb10b875924a19be', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xd5d59fc063e7548b6015a36feb10b875924a19be', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == REDSTONE_GARNET) {
+    return {
+      factoryAddress: '0x338F6033D373F610510e0F285637Ef5DDA776742',
+      stablecoinWrappedNativePoolAddress: '0x8e3df6832ac29e5568966162ffe2a025f07f9e08', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xd2ca61f265a2da2d2cd7607f05c26ebfa18ad5f6', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xd2ca61f265a2da2d2cd7607f05c26ebfa18ad5f6', // USDC
+      ],
+      tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
     }
