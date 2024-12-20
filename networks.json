@@ -100,5 +100,11 @@
       "address": "0x338F6033D373F610510e0F285637Ef5DDA776742",
       "startBlock": 586081
     }
+  },
+  "ink": {
+    "Factory": {
+      "address": "0x640887A9ba3A9C53Ed27D0F7e8246A4F933f3424",
+      "startBlock": 284117
+    }
   }
 }

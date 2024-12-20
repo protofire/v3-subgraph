@@ -42,6 +42,7 @@ const CYBER = 'cyeth'
 const SHAPE = 'shape'
 const REDSTONE = 'redstone'
 const REDSTONE_GARNET = 'redstone-garnet'
+const INK = 'ink'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -533,6 +534,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0x4200000000000000000000000000000000000006', // WETH
         '0xd2ca61f265a2da2d2cd7607f05c26ebfa18ad5f6', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == INK) {
+    return {
+      factoryAddress: '0x640887A9ba3A9C53Ed27D0F7e8246A4F933f3424',
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0xf1815bd50389c46847f0bda824ec8da914045d14', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0xf1815bd50389c46847f0bda824ec8da914045d14', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],
