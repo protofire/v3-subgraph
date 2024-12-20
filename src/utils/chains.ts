@@ -542,7 +542,7 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == INK) {
     return {
       factoryAddress: '0x640887A9ba3A9C53Ed27D0F7e8246A4F933f3424',
-      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // USDC/WETH 0.3% pool
+      stablecoinWrappedNativePoolAddress: '0xd5aa1bd330a94332f071da5bb3651ec372ea6926', // USDC/WETH 0.3% pool
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
       minimumNativeLocked: BigDecimal.fromString('1'),
