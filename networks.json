@@ -106,5 +106,11 @@
       "address": "0x640887A9ba3A9C53Ed27D0F7e8246A4F933f3424",
       "startBlock": 284117
     }
+  },
+  "abstract": {
+    "Factory": {
+      "address": "0xA1160e73B63F322ae88cC2d8E700833e71D0b2a1",
+      "startBlock": 5617
+    }
   }
 }
