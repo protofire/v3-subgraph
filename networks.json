@@ -113,7 +113,7 @@
       "startBlock": 5617
     }
   },
-  "animeTestnet": {
+  "anime-testnet": {
     "Factory": {
       "address": "0xE6eA2A148c13893a8eEDD57c75043055a8924C5f",
       "startBlock": 1651650
