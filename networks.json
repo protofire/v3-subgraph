@@ -118,5 +118,12 @@
       "address": "0xE6eA2A148c13893a8eEDD57c75043055a8924C5f",
       "startBlock": 1651650
     }
+  },
+  "mode": {
+    "Factory": {
+      "address": "0xEF82b43719dd13ba33ef7D93e6f0d1f690eEa5B2",
+      "startBlock": 19222570
+
+    }
   }
 }
