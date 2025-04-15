@@ -24,7 +24,8 @@ export enum ChainId {
   REDSTONE = 690,
   ABSTRACT = 2741,
   ANIME_TESTNET = 6900,
-  MODe = 34443
+  MODe = 34443,
+  ANIME = 69000
 }
 
 // subgraph does not support string enums, hence these constants
@@ -49,6 +50,7 @@ const INK = 'ink'
 const ABSTRACT_MAINNET = 'abstract'
 const ANIME_TESTNET = 'anime-testnet'
 const MODE = 'mode'
+const ANIME = 'anime'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -612,6 +614,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0x4200000000000000000000000000000000000006', // WETH
         '0xd988097fb8612cc24eec14542bc03424c656005f', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == ANIME) {
+    return {
+      factoryAddress: '0x69D30A49fcbaB7142d604635772B7Eef958aE0bd',
+      stablecoinWrappedNativePoolAddress: '0x555b4306a6Ce8b295D92C44F409A77efcf3D1EBe', // USDC/WETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x164906a76f1A2Ea933366c446AE0Ec6a37062c42', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0x401eCb1D350407f13ba348573E5630B83638E30D', // USDC
+      ],
+      whitelistTokens: [
+        '0x164906a76f1A2Ea933366c446AE0Ec6a37062c42', // WETH
+        '0x401eCb1D350407f13ba348573E5630B83638E30D', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],

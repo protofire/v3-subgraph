@@ -9,11 +9,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: mode
+    network: anime
     source:
       abi: Factory
-      address: "0xEF82b43719dd13ba33ef7D93e6f0d1f690eEa5B2"
-      startBlock: 19222570
+      address: "0x69D30A49fcbaB7142d604635772B7Eef958aE0bd"
+      startBlock: 57516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: mode
+    network: anime
     source:
       abi: Pool
     mapping:
