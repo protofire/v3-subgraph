@@ -131,5 +131,11 @@
       "address": "0x69D30A49fcbaB7142d604635772B7Eef958aE0bd",
       "startBlock": 57516
     }
+  },
+  "base-sepolia": {
+    "Factory": {
+      "address": "0x8a7da47983c7db2e9d5153be02c63f0cd71836ec",
+      "startBlock": 33344307
+    }
   }
 }

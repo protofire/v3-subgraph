@@ -7,6 +7,7 @@ export enum ChainId {
   ARBITRUM_ONE = 42161,
   AVALANCHE = 43114,
   BASE = 8453,
+  BASE_SEPOLIA = 84532,
   BLAST_MAINNET = 81457,
   BSC = 56,
   CELO = 42220,
@@ -32,6 +33,7 @@ export enum ChainId {
 const ARBITRUM_ONE_NETWORK_NAME = 'arbitrum-one'
 const AVALANCHE_NETWORK_NAME = 'avalanche'
 const BASE_NETWORK_NAME = 'base'
+const BASE_SEPOLIA_NETWORK_NAME = 'base-sepolia'
 const BLAST_MAINNET_NETWORK_NAME = 'blast-mainnet'
 const BSC_NETWORK_NAME = 'bsc'
 const CELO_NETWORK_NAME = 'celo'
@@ -176,6 +178,24 @@ export function getSubgraphConfig(): SubgraphConfig {
       whitelistTokens: [
         '0x4200000000000000000000000000000000000006', // WETH
         '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == BASE_SEPOLIA_NETWORK_NAME) {
+    return {
+      factoryAddress: '0x8a7da47983c7db2e9d5153be02c63f0cd71836ec',
+      stablecoinWrappedNativePoolAddress: '0xf2f417498ca7eaae3df5be8adcb86a1da5f01622', // USDC-WETH 0.3% pool
+      stablecoinIsToken0: true,
+      wrappedNativeAddress: '0x4200000000000000000000000000000000000006', // WETH
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [
+        '0x036cbd53842c5426634e7929541ec2318f3dcf7e', // USDC
+      ],
+      whitelistTokens: [
+        '0x4200000000000000000000000000000000000006', // WETH
+        '0x036cbd53842c5426634e7929541ec2318f3dcf7e', // USDC
       ],
       tokenOverrides: [],
       poolsToSkip: [],
