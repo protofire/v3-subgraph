@@ -9,11 +9,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: anime
+    network: stable-testnet
     source:
       abi: Factory
-      address: "0x69D30A49fcbaB7142d604635772B7Eef958aE0bd"
-      startBlock: 57516
+      address: "0xb4d13e25c0c417584b9f9353d15a59664e1c4ada"
+      startBlock: 33864865
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: anime
+    network: stable-testnet
     source:
       abi: Pool
     mapping:
