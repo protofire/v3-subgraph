@@ -1,4 +1,4 @@
-import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
+import { BigDecimal, BigInt, dataSource } from '@graphprotocol/graph-ts'
 
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 import { Bundle, Pool, Token } from './../types/schema'
@@ -59,6 +59,11 @@ export function getNativePriceInUSD(
   stablecoinWrappedNativePoolAddress: string,
   stablecoinIsToken0: boolean,
 ): BigDecimal {
+  // STABLE testnet: native token price is always 1 USD
+  if (dataSource.network() == 'stable-testnet') {
+    return ONE_BD
+  }
+  
   const stablecoinWrappedNativePool = Pool.load(stablecoinWrappedNativePoolAddress)
   if (stablecoinWrappedNativePool !== null) {
     return stablecoinIsToken0 ? stablecoinWrappedNativePool.token0Price : stablecoinWrappedNativePool.token1Price
@@ -77,6 +82,83 @@ export function findNativePerToken(
   stablecoinAddresses: string[],
   minimumNativeLocked: BigDecimal,
 ): BigDecimal {
+  // STABLE testnet: special handling since there's no wrapped token and native price is always 1 USD
+  // TODO: analyze the impact
+  if (dataSource.network() == 'stable-testnet') {
+    if (stablecoinAddresses.includes(token.id)) {
+      return ONE_BD
+    }
+    const whiteList = token.whitelistPools
+    let largestLiquidityUSD = ZERO_BD
+    let priceSoFar = ZERO_BD
+    
+    for (let i = 0; i < whiteList.length; ++i) {
+      const poolAddress = whiteList[i]
+      const pool = Pool.load(poolAddress)
+
+      if (pool) {
+        if (pool.liquidity.gt(ZERO_BI)) {
+          if (pool.token0 == token.id && stablecoinAddresses.includes(pool.token1)) {
+            const token1 = Token.load(pool.token1)
+            if (token1) {
+              const usdLocked = pool.totalValueLockedToken1
+              if (usdLocked.gt(largestLiquidityUSD) && usdLocked.gt(minimumNativeLocked)) {
+                largestLiquidityUSD = usdLocked
+                priceSoFar = pool.token1Price
+              }
+            }
+          }
+          if (pool.token1 == token.id && stablecoinAddresses.includes(pool.token0)) {
+            const token0 = Token.load(pool.token0)
+            if (token0) {
+              const usdLocked = pool.totalValueLockedToken0
+              if (usdLocked.gt(largestLiquidityUSD) && usdLocked.gt(minimumNativeLocked)) {
+                largestLiquidityUSD = usdLocked
+                priceSoFar = pool.token0Price
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    if (priceSoFar.gt(ZERO_BD)) {
+      return priceSoFar
+    }
+    
+    let largestLiquidityETH = ZERO_BD
+    for (let i = 0; i < whiteList.length; ++i) {
+      const poolAddress = whiteList[i]
+      const pool = Pool.load(poolAddress)
+
+      if (pool) {
+        if (pool.liquidity.gt(ZERO_BI)) {
+          if (pool.token0 == token.id) {
+            const token1 = Token.load(pool.token1)
+            if (token1 && token1.derivedETH.gt(ZERO_BD)) {
+              const usdLocked = pool.totalValueLockedToken1.times(token1.derivedETH)
+              if (usdLocked.gt(largestLiquidityETH) && usdLocked.gt(minimumNativeLocked)) {
+                largestLiquidityETH = usdLocked
+                priceSoFar = pool.token1Price.times(token1.derivedETH as BigDecimal)
+              }
+            }
+          }
+          if (pool.token1 == token.id) {
+            const token0 = Token.load(pool.token0)
+            if (token0 && token0.derivedETH.gt(ZERO_BD)) {
+              const usdLocked = pool.totalValueLockedToken0.times(token0.derivedETH)
+              if (usdLocked.gt(largestLiquidityETH) && usdLocked.gt(minimumNativeLocked)) {
+                largestLiquidityETH = usdLocked
+                priceSoFar = pool.token0Price.times(token0.derivedETH as BigDecimal)
+              }
+            }
+          }
+        }
+      }
+    }
+    return priceSoFar
+  }
+  
   if (token.id == wrappedNativeAddress) {
     return ONE_BD
   }

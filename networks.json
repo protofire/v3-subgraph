@@ -131,5 +131,11 @@
       "address": "0x69D30A49fcbaB7142d604635772B7Eef958aE0bd",
       "startBlock": 57516
     }
+  },
+  "stable-testnet": {
+    "Factory": {
+      "address": "0x2e5F4ccAEF6f4e4bD4fF8B3D754Ff6CB3715e207",
+      "startBlock": 34539327
+    }
   }
 }
