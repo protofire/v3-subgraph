@@ -123,7 +123,6 @@
     "Factory": {
       "address": "0xEF82b43719dd13ba33ef7D93e6f0d1f690eEa5B2",
       "startBlock": 19222570
-
     }
   },
   "anime": {
@@ -136,6 +135,12 @@
     "Factory": {
       "address": "0x2e5F4ccAEF6f4e4bD4fF8B3D754Ff6CB3715e207",
       "startBlock": 34539327
+    }
+  },
+  "stable": {
+    "Factory": {
+      "address": "0x88F0a512eF09175D456bc9547f914f48C013E4aA",
+      "startBlock": 3442899
     }
   }
 }

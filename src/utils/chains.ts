@@ -26,7 +26,8 @@ export enum ChainId {
   ANIME_TESTNET = 6900,
   MODe = 34443,
   ANIME = 69000,
-  STABLE_TESTNET = 2201
+  STABLE_TESTNET = 2201,
+  STABLE = 988,
 }
 
 // subgraph does not support string enums, hence these constants
@@ -53,6 +54,7 @@ const ANIME_TESTNET = 'anime-testnet'
 const MODE = 'mode'
 const ANIME = 'anime'
 const STABLE_TESTNET = 'stable-testnet'
+const STABLE = 'stable'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -645,13 +647,31 @@ export function getSubgraphConfig(): SubgraphConfig {
       // No WETH/USDC pool exists, using dummy address
       stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', //Unsupported protocol
       stablecoinIsToken0: false,
-      wrappedNativeAddress: '0x0000000000000000000000000000000000000000',       //Unsupported protocol
+      wrappedNativeAddress: '0x0000000000000000000000000000000000000000', //Unsupported protocol
       minimumNativeLocked: BigDecimal.fromString('0'),
       stablecoinAddresses: [
         '0x78cf24370174180738c5b8e352b6d14c83a6c9a9', // USD₮0
       ],
       whitelistTokens: [
         '0x78cf24370174180738c5b8e352b6d14c83a6c9a9', // USD₮0
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == STABLE) {
+    return {
+      factoryAddress: '0x88f0a512ef09175d456bc9547f914f48c013e4aa',
+      // No WETH/USDC pool exists, using dummy address
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // Unsupported protocol
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x0000000000000000000000000000000000000000', // Unsupported protocol
+      minimumNativeLocked: BigDecimal.fromString('0'),
+      stablecoinAddresses: [
+        '0x779ded0c9e1022225f8e0630b35a9b54be713736', // USD₮0
+      ],
+      whitelistTokens: [
+        '0x779ded0c9e1022225f8e0630b35a9b54be713736', // USD₮0
       ],
       tokenOverrides: [],
       poolsToSkip: [],
