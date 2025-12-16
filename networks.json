@@ -131,5 +131,11 @@
       "address": "0x69D30A49fcbaB7142d604635772B7Eef958aE0bd",
       "startBlock": 57516
     }
+  },
+  "zircuit-mainnet": {
+    "Factory": {
+      "address": "0x370a8df17742867a44e56223ec20d82092242c85",
+      "startBlock": 22975630
+    }
   }
 }
