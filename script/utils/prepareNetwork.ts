@@ -20,6 +20,7 @@ export enum NETWORK {
   OPTIMISM = 'optimism',
   ROBINHOOD = 'robinhood-mainnet',
   SONEIUM = 'soneium-mainnet',
+  STABLE = 'stable',
   TEMPO = 'tempo',
   UNICHAIN = 'unichain-mainnet',
   WORLDCHAIN = 'worldchain-mainnet',
