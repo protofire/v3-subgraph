@@ -666,7 +666,7 @@ export function getSubgraphConfig(): SubgraphConfig {
       stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // Unsupported protocol
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x0000000000000000000000000000000000000000', // Unsupported protocol
-      minimumNativeLocked: BigDecimal.fromString('0'),
+      minimumNativeLocked: BigDecimal.fromString('2000'),
       stablecoinAddresses: [
         '0x779ded0c9e1022225f8e0630b35a9b54be713736', // USD₮0
       ],

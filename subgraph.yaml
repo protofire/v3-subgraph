@@ -6,6 +6,9 @@ schema:
 features:
   - nonFatalErrors
   - grafting
+graft:
+  base: QmaqfdndmC5xfWMz2WSq4nPyLwEVpuMpCFfa86mv2JPMSK
+  block: 32039472
 dataSources:
   - kind: ethereum/contract
     name: Factory
